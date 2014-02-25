@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>{% block title %}Harrison Sweeney{% endblock %}</title>
+	<link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">	
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+	<link rel="alternate" type="application/rss+xml" title="My Blog Feed" href="/rss.xml">
+
+  <!-- Typekit -->
+	<script type="text/javascript" src="//use.typekit.net/dxd7cds.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  {% block content %}
+  Main content
+  {% endblock content %}
+
+  {% block scripts %}
+  <!-- Google Analytics -->
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-44627910-1']);
+	  _gaq.push(['_setDomainName', 'harrisonsweeney.com']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="{% static '/js/main.js' %}"></script>
+  {% endblock scripts %}
+
+</body>
+</html>

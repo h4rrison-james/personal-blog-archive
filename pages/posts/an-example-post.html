@@ -1,0 +1,108 @@
+title: How to write your Thesis in MMD, Latex, and Scrivener
+author: Harrison Sweeney
+date: 10-09-2013
+headline: A brief introduction to the painful process of writing a thesis, and the slightly less painful way to go about it.
+
+{% extends "post.html" %}
+{% block body %}
+
+{% filter markdown %}
+
+When it came time to begin writing my final year thesis for engineering, I realised very quickly that I faced a dilemma: put up with the woefully inadequate Microsoft Word, which I knew would eventually get the job done, or face many hours troubleshooting a more complicated [LaTeX](http://www.latex-project.org/) setup, potentially wasting days before I could even start writing. 
+
+Suffice to say, it didn't take very long for me to make my decision. One look at the beautifully typeset, evenly spaced, automatically referenced magic that was LaTeX and I was sold. Having made this decision, and after many hours researching LaTeX typesetting programs, I discovered [MultiMarkdown](http://fletcherpenney.net/multimarkdown/).
+ 
+## MultiMarkdown
+
+MultiMarkdown (MMD) is markup language that turns minimally marked up text into a variety of ordered formats like HTML and PDF. It's an extension of the popular text markup language [Markdown](http://daringfireball.net/projects/markdown/), originally by John Gruber. 
+
+The premise is pretty simple: write in plain text with minimal markup to signify headings, links, and code blocks, and get perfectly formatted HTML or a nicely laid out PDF as a result. Why MDD over the original? It adds references, tables, and a few other critical tools to the original Markdown language. 
+
+Now that I had decided on writing in Markdown and compiling to LaTeX, I began to look for an editor that would that would simplify the process for me.
+
+## Scrivener
+
+Enter [Scrivener](http://www.literatureandlatte.com/). Scrivener is, put simply, a word processor on crack. It allows you to write in almost any format you can imagine (including the aforementioned MultiMarkdown), and will compile to HTML, Word, LaTeX, plaintext, and a host of other obscure formats. 
+
+Arguably its most powerful feature is the ability to break up long documents into smaller 'texts', which can then be organised into folders as you choose. You can then rearrange the individual sections ad lib, attaching individual notes and noting version numbers. It also includes full support for viewing and managing references from within Scrivener, which is helpful for academic papers and other reference heavy documents.
+
+![Scrivener]({% static 'images/scrivener.png' %} "Scrivener")
+
+Scrivener is a tad pricey at $45 USD, but comes with a free trial that I would highly recommend. In the end I figured it was worth spending 50 odd dollars for a year long project.
+
+## BibDesk
+
+References are a crucial part of any thesis or academic paper, and managing and formatting them has traditionally been frustrating and repetitive. [BibDesk](http://bibdesk.sourceforge.net/) is a pretty simple graphical bibliography manager. 
+
+It allows you to build your list of references and assign a unique cite key to each one. I use the format `Author_Year`, though you can of course use anything you like. As an added bonus, [Google Scholar](http://scholar.google.com/) includes the ability to copy a pre-formatted BibDesk reference to your clipboard, which you can then import into BibDesk using `Publication -> New Publication from Clipboard`.
+
+After you've built up your reference list, you simply include the cite key of a reference, and everything else is handled by LaTeX automatically. To make an inline citation for example, you would use the syntax `[#Boser_1992;]` (note the semicolon). To make a regular citation, which would appear in text at the end of the sentence, you simply drop the semicolon: `[#Jones_1996]`, as shown below:
+
+	Despite the unlikelihood of this assumption being correct in practice, performance is often highly competitive, as demonstrated by [#Pazzani_1996;] and [#Langley_1992;]. Since the classifier also exhibits advantageous learning speed, it is widely applied in a variety of real world contexts[#Wu_2008].
+
+The great thing about using cite keys like this is that any change to your reference in your BibDesk file will be automatically reflected in your LaTeX file, and the difficult-to-format line in the bibliography will be automatically updated.
+
+## Putting it all together
+
+Although Scrivener comes with basic MultiMarkdown support, to get all the bells and whistles you'll have to install the MultiMarkdown Support package, available [here](https://github.com/fletcher/peg-multimarkdown/downloads/). Once you've done that, you can write documents using the [MMD syntax](https://rawgithub.com/fletcher/human-markdown-reference/master/index.html). 
+
+To export to LaTex, go to `File -> Compile` and choose to compile from MultiMarkdown to LaTeX. Under compilation options, you can choose which parts of the document to export under 'Contents'. Under 'LaTeX Options' you can choose a document class to compile to (I find article works quite well for academic papers). Finally, under 'Meta-Data', you'll have to set a few options for everything to work correctly.
+
+<table>
+	<tr>
+		<th>Key</th>
+		<th>Value</th>
+	</tr>
+	<tr>
+		<td>Base Header Level</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td>BibTeX</td>
+		<td>../bibliography</td>
+	</tr>
+	<tr>
+		<td>bibliostyle</td>
+		<td>plainnat</td>
+	</tr>
+	<tr>
+		<td>Title</td>
+		<td><$projecttitle></td>
+	</tr>
+	<tr>
+		<td>Author</td>
+		<td><$author></td>
+	</tr>
+	<tr>
+		<td>latex input</td>
+		<td>../custom-latex-input</td>
+	</tr>
+</table>
+	
+To briefly explain:
+
+* `Base Header Level` changes how big your biggest headings appear (try 1, 2, and 3).
+* `BibTeX` is the path to your BibDesk .bib file (note no file extension).
+* `bibliostyle` is the name of the [format style](http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management#Bibliography_styles) you'd like applied to your citations.
+* `Title` simply passes LaTeX the title of the Scrivener document you are working in.
+* `Author` does the same thing.
+* `latex input` allows you to pass in a custom input file (optional, more on this later).
+
+Once you've set that up, your basic workflow is as follows:
+
+* Write using MMD syntax in Scrivener
+* Export to LaTeX using `File -> Compile`
+* Typeset the LaTeX using [TexShop](http://pages.uoregon.edu/koch/texshop/) to output a PDF
+
+## Tips and Tricks
+
+There are a few little tricks that you work out when using this workflow, which I've included here to save you some time.
+
+Firstly, when typesetting the LaTeX file in TexShop, you'll have to typeset multiple times in order for the citations and bibliography to format properly. TexShop includes a macro to do this automatically under `Macros -> Applescript -> Bibliography`.
+
+Make sure your BibDesk .bib file is in the same directory as your LaTex file when you go to typeset, otherwise TexShop will give you an error and none of your citations will format correctly.
+
+You can add your own `latex footer` and `latex input` files by including those keys in your Scrivener meta-data. This allows you to import custom LaTeX packages so you can draw fancy figures, add special typesetting rules, and anything else that's possible with LaTeX. When adding these keys to your meta-data, it's important to put `latex input` last, and note that the file paths are relative to your export directory, and *do not* require extensions. If, for example, your custom input file is in the same directory that you export to, you would set `latex input` to `custom-latex-input` in Scrivener.
+
+{% endfilter %}
+{% endblock body %}
