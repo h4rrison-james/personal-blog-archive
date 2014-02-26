@@ -77,10 +77,10 @@ h3
 h4
 	font-size: 24px
 a
-	color: $typo-light
+	color: $typo-dark
 	text-decoration: none
 p
-	color: $typo-med
+	color: $typo-dark
 	font-size: 20px
 	line-height: 1.5
 	margin: 0
@@ -94,17 +94,55 @@ aside
 	font-size: 14px
 	line-height: 1.5
 
+table
+	width: 100%
+	margin: 40px 0
+	border-collapse: collapse
+	font-size: 13px
+	line-height: 1.5em
+
+th,td
+	text-align: left
+	padding-right: 20px
+	vertical-align: top
+
+table td,td
+	border-spacing: none
+	border-style: solid
+	padding: 10px 15px
+	border-width: 1px 0 0 0
+
+tr>td
+	border-top: 1px solid #eaeaea
+
+tr:nth-child(odd)>td
+	background: #fcfcfc
+
+thead th,th
+	text-align: left
+	padding: 10px 15px
+	height: 20px
+	font-size: 13px
+	font-weight: bold
+	color: #444
+	border-bottom: 1px solid #dadadc
+	cursor: default
+	white-space: nowrap
+
 //=========================================
 // Footer
 //=========================================
 
 footer
 	border-top: 1px solid #f2f2f0
-	a
+	margin-bottom: 30px
+	a, div
 		color: $typo-light
 		font-size: 12px
 		line-height: 40px
 		vertical-align: middle
+	div
+		display: inline-block
 	a:hover
 		color: $typo-dark
 		text-decoration: underline
@@ -119,7 +157,8 @@ header.hero
 	padding-top: 200px
 	background-image: url('../images/hero-bg.jpeg')
 	background-size: cover
-	background-position: 0
+	// Set the starting position for the background
+	background-position: 50% -240px
 	text-align: center
 
 	h1, h3
@@ -147,3 +186,50 @@ main div.container
 			margin-bottom: 4px
 		p
 			line-height: 1.2
+
+//=========================================
+// Post View
+//=========================================
+
+$article-width: 700px
+
+article.post
+	width: $article-width
+	margin: 0 auto
+
+	*
+		max-width: $article-width
+
+	header
+		margin: 40px 0
+		h1
+			font-size: 50px
+			margin-bottom: 8px
+		h2
+			font-weight: 300
+			font-size: 30px
+			color: $typo-med
+	h2
+		font-size: 24px
+		margin-bottom: 2px
+		line-height: 1.2
+	p, ul
+		font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif
+		font-size: 22px
+		letter-spacing: 0.01rem
+		line-height: 1.5
+		margin-bottom: 30px
+	li
+		color: $typo-dark
+		margin-left: 30px
+		margin-bottom: 12px
+	a
+		text-decoration: underline
+	pre
+		white-space: pre-wrap     	/* CSS3 */
+		white-space: -moz-pre-wrap  /* Mozilla, since 1999 */
+		white-space: -pre-wrap    	/* Opera 4-6 */
+		white-space: -o-pre-wrap  	/* Opera 7 */
+		word-wrap: break-word      	/* Internet Explorer 5.5+ */
+	footer div:last-of-type
+		float: right

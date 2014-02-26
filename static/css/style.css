@@ -71,11 +71,11 @@ h4 {
   font-size: 24px; }
 
 a {
-  color: #b3b3b1;
+  color: #333332;
   text-decoration: none; }
 
 p {
-  color: #666665;
+  color: #333332;
   font-size: 20px;
   line-height: 1.5;
   margin: 0; }
@@ -89,13 +89,51 @@ aside {
   font-size: 14px;
   line-height: 1.5; }
 
+table {
+  width: 100%;
+  margin: 40px 0;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.5em; }
+
+th, td {
+  text-align: left;
+  padding-right: 20px;
+  vertical-align: top; }
+
+table td, td {
+  border-spacing: none;
+  border-style: solid;
+  padding: 10px 15px;
+  border-width: 1px 0 0 0; }
+
+tr > td {
+  border-top: 1px solid #eaeaea; }
+
+tr:nth-child(odd) > td {
+  background: #fcfcfc; }
+
+thead th, th {
+  text-align: left;
+  padding: 10px 15px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #444444;
+  border-bottom: 1px solid #dadadc;
+  cursor: default;
+  white-space: nowrap; }
+
 footer {
-  border-top: 1px solid #f2f2f0; }
-  footer a {
+  border-top: 1px solid #f2f2f0;
+  margin-bottom: 30px; }
+  footer a, footer div {
     color: #b3b3b1;
     font-size: 12px;
     line-height: 40px;
     vertical-align: middle; }
+  footer div {
+    display: inline-block; }
   footer a:hover {
     color: #333332;
     text-decoration: underline; }
@@ -106,7 +144,7 @@ header.hero {
   padding-top: 200px;
   background-image: url("../images/hero-bg.jpeg");
   background-size: cover;
-  background-position: 0;
+  background-position: 50% -240px;
   text-align: center; }
   header.hero h1, header.hero h3 {
     color: white; }
@@ -132,3 +170,42 @@ main div.container {
       margin-bottom: 4px; }
     main div.container ul#post-list p {
       line-height: 1.2; }
+
+article.post {
+  width: 700px;
+  margin: 0 auto; }
+  article.post * {
+    max-width: 700px; }
+  article.post header {
+    margin: 40px 0; }
+    article.post header h1 {
+      font-size: 50px;
+      margin-bottom: 8px; }
+    article.post header h2 {
+      font-weight: 300;
+      font-size: 30px;
+      color: #666665; }
+  article.post h2 {
+    font-size: 24px;
+    margin-bottom: 2px;
+    line-height: 1.2; }
+  article.post p, article.post ul {
+    font-family: "freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 22px;
+    letter-spacing: 0.01rem;
+    line-height: 1.5;
+    margin-bottom: 30px; }
+  article.post li {
+    color: #333332;
+    margin-left: 30px;
+    margin-bottom: 12px; }
+  article.post a {
+    text-decoration: underline; }
+  article.post pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word; }
+  article.post footer div:last-of-type {
+    float: right; }
