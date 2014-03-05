@@ -130,6 +130,27 @@ thead th,th
 	white-space: nowrap
 
 //=========================================
+// Monogram
+//=========================================
+
+$monogram-size: 45px
+
+a#monogram
+	position: absolute
+	top: 10px
+	left: 10px
+	width: $monogram-size
+	height: $monogram-size
+	background-color: $typo-med
+	&:hover
+		background-color: $typo-dark
+	svg
+		fill: white
+		width: $monogram-size
+		height: 26px
+		margin-top: 10px
+
+//=========================================
 // Footer
 //=========================================
 
@@ -157,8 +178,9 @@ header.hero
 	padding-top: 200px
 	background-image: url('../images/hero-bg.jpeg')
 	background-size: cover
+	background-attachment: fixed
 	// Set the starting position for the background
-	background-position: 50% -240px
+	background-position: 50% -180px
 	text-align: center
 
 	h1, h3
@@ -169,6 +191,16 @@ header.hero
 		font-size: 22px
 		font-weight: 300
 		line-height: 1.5
+		margin-bottom: 6px
+	a i
+		color: white
+		font-size: 25px
+		margin-left: 15px
+		opacity: 0.6
+		&:hover
+			opacity: 1
+	a:first-of-type i
+		margin-left: 0
 
 div.container
 	width: 100%
@@ -195,13 +227,13 @@ $article-width: 700px
 
 article.post
 	width: $article-width
-	margin: 0 auto
+	margin: 100px auto
 
 	*
 		max-width: $article-width
 
 	header
-		margin: 40px 0
+		margin-bottom: 40px
 		h1
 			font-size: 50px
 			margin-bottom: 8px
@@ -231,5 +263,8 @@ article.post
 		white-space: -pre-wrap    	/* Opera 4-6 */
 		white-space: -o-pre-wrap  	/* Opera 7 */
 		word-wrap: break-word      	/* Internet Explorer 5.5+ */
-	footer div:last-of-type
-		float: right
+	footer
+		div:first-of-type
+			float: left
+		div:last-of-type
+			float: right

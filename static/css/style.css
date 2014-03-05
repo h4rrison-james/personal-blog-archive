@@ -124,6 +124,21 @@ thead th, th {
   cursor: default;
   white-space: nowrap; }
 
+a#monogram {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 45px;
+  height: 45px;
+  background-color: #666665; }
+  a#monogram:hover {
+    background-color: #333332; }
+  a#monogram svg {
+    fill: white;
+    width: 45px;
+    height: 26px;
+    margin-top: 10px; }
+
 footer {
   border-top: 1px solid #f2f2f0;
   margin-bottom: 30px; }
@@ -144,7 +159,8 @@ header.hero {
   padding-top: 200px;
   background-image: url("../images/hero-bg.jpeg");
   background-size: cover;
-  background-position: 50% -240px;
+  background-attachment: fixed;
+  background-position: 50% -180px;
   text-align: center; }
   header.hero h1, header.hero h3 {
     color: white; }
@@ -153,7 +169,17 @@ header.hero {
   header.hero h3 {
     font-size: 22px;
     font-weight: 300;
-    line-height: 1.5; }
+    line-height: 1.5;
+    margin-bottom: 6px; }
+  header.hero a i {
+    color: white;
+    font-size: 25px;
+    margin-left: 15px;
+    opacity: 0.6; }
+    header.hero a i:hover {
+      opacity: 1; }
+  header.hero a:first-of-type i {
+    margin-left: 0; }
 
 div.container {
   width: 100%;
@@ -173,11 +199,11 @@ main div.container {
 
 article.post {
   width: 700px;
-  margin: 0 auto; }
+  margin: 100px auto; }
   article.post * {
     max-width: 700px; }
   article.post header {
-    margin: 40px 0; }
+    margin-bottom: 40px; }
     article.post header h1 {
       font-size: 50px;
       margin-bottom: 8px; }
@@ -207,5 +233,7 @@ article.post {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word; }
+  article.post footer div:first-of-type {
+    float: left; }
   article.post footer div:last-of-type {
     float: right; }
