@@ -232,7 +232,13 @@ article.post {
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
-    word-wrap: break-word; }
+    word-wrap: break-word;
+    font-family: Monaco, "Courier New", "Courier", monospace;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    padding: 20px;
+    line-height: 1.2; }
   article.post footer div:first-of-type {
     float: left; }
   article.post footer div:last-of-type {
