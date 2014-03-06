@@ -1,6 +1,6 @@
 {
     "aws-access-key": "AKIAIB45WB5YCBOW3OOQ",
-    "aws-bucket-name": "hs-personal-blog",
-    "aws-bucket-website": "hs-personal-blog.s3-website-us-east-1.amazonaws.com",
+    "aws-bucket-name": "harrisonsweeney.com",
+    "aws-bucket-website": "harrisonsweeney.com.s3-website-us-east-1.amazonaws.com",
     "port": 8463
 }
